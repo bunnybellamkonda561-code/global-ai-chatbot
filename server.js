@@ -103,8 +103,9 @@ app.post('/api/chat', async (req, res) => {
 
   let replyText = '';
   let usedAPI = false;
+  const apiKey = (geminiApiKey && geminiApiKey.trim() !== '') ? geminiApiKey : process.env.GEMINI_API_KEY;
 
-  if (geminiApiKey && geminiApiKey.trim() !== '') {
+  if (apiKey && apiKey.trim() !== '') {
     try {
       // Use Live Gemini API
       const systemInstruction = isHub
@@ -118,7 +119,7 @@ app.post('/api/chat', async (req, res) => {
       }));
 
       // Call Gemini API via fetch (uses Gemini 2.5 Flash as standard fast model)
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiApiKey}`;
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
       const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
