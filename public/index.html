@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Care Router | Multi-Agent Chatbot Hub</title>
+  <meta name="description" content="A premium multi-agent customer care gateway connecting you to brand chatbots worldwide in real-time.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#10061e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+  <!-- Dynamic Mesh Background -->
+  <div class="mesh-bg"></div>
+
+  <div class="app-container">
+    
+    <!-- Sidebar / Global Network Explorer -->
+    <aside class="sidebar glass-panel" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-box">
+          <span class="hub-logo">🌐</span>
+          <div>
+            <h1>Global Care Hub</h1>
+            <span class="subtitle">Multi-Agent Network</span>
+          </div>
+        </div>
+        <div class="sidebar-actions">
+          <button id="settingsBtn" class="icon-btn" title="Settings & Keys" aria-label="Open Settings">⚙️</button>
+          <button id="closeSidebarBtn" class="icon-btn close-sidebar-btn hidden" aria-label="Close Sidebar">&times;</button>
+        </div>
+      </div>
+
+      <!-- Network Stats Info -->
+      <div class="network-stats">
+        <div class="stat-item">
+          <span class="stat-label">Active Nodes</span>
+          <span class="stat-val" id="activeNodesCount">4</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Network Status</span>
+          <span class="stat-val status-green">Secure</span>
+        </div>
+      </div>
+
+      <!-- Connected Nodes Directory -->
+      <div class="nodes-section">
+        <h3>Connected Global Chatbots</h3>
+        <div class="node-list" id="nodeList">
+          <!-- Populated dynamically via JS -->
+          <div class="node-item loading">Loading active agents...</div>
+        </div>
+      </div>
+
+      <!-- Register New Bot Promo -->
+      <button class="btn btn-secondary register-trigger-btn" id="openRegisterBtn">
+        <span>+</span> Register Local Agent
+      </button>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="chat-frame">
+      
+      <!-- Dynamic Header -->
+      <header class="chat-header glass-panel" id="chatHeader">
+        <div class="active-agent-profile">
+          <button id="menuToggleBtn" class="icon-btn menu-toggle-btn hidden" aria-label="Toggle Sidebar">☰</button>
+          <div class="agent-avatar" id="headerAvatar">🤖</div>
+          <div class="agent-details">
+            <h2 id="headerName">Global Care Router</h2>
+            <p id="headerTagline">Connecting you to global support agents instantly</p>
+          </div>
+        </div>
+        <div class="connection-status">
+          <span class="ping-badge" id="headerPing">Ping: 2ms</span>
+          <button id="disconnectBtn" class="btn btn-sm btn-outline btn-disconnect hidden">Disconnect Agent</button>
+        </div>
+      </header>
+
+      <!-- Messages Area -->
+      <div class="messages-container" id="messagesContainer">
+        <!-- Welcoming Hub message -->
+        <div class="message system-notification">
+          <div class="notification-bubble">
+            🌐 Session established with Global Care Router. Key fallback mode active.
+          </div>
+        </div>
+        <div class="message assistant">
+          <div class="msg-avatar">🤖</div>
+          <div class="msg-bubble">
+            Hello! I am your Global AI Care Router. I can connect you to company customer care departments worldwide. Just ask: <strong>"Connect me to Nike"</strong> or <strong>"I want to talk to Spotify support"</strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator hidden" id="typingIndicator">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+      <!-- Input Area & Dynamic Suggestions -->
+      <footer class="chat-footer glass-panel">
+        <div class="suggestions-row" id="suggestionsRow">
+          <!-- Populated dynamically based on active agent -->
+        </div>
+        <form class="input-form" id="chatForm">
+          <input type="text" id="userInput" placeholder="Type a message or ask to connect to a company..." autocomplete="off" required>
+          <button type="submit" class="btn btn-primary send-btn" id="sendBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+          </button>
+        </form>
+      </footer>
+    </main>
+
+  </div>
+
+  <!-- Settings & API Modal -->
+  <div class="modal-overlay hidden" id="settingsModal">
+    <div class="modal glass-panel">
+      <div class="modal-header">
+        <h2>System Configuration</h2>
+        <button class="close-btn" id="closeSettingsBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="apiKeyInput">Gemini API Key (Optional)</label>
+          <input type="password" id="apiKeyInput" placeholder="AIzaSy..." class="form-control">
+          <small class="help-text">If provided, live Gemini LLM responses will be generated. Without it, the router runs in fully functioning offline simulation mode.</small>
+        </div>
+        <div class="form-group">
+          <label>Routing Mode</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="mode" value="auto" checked>
+              <span>Auto Simulator (Keyless)</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="mode" value="api">
+              <span>Live Gemini API</span>
+            </label>
+          </div>
+        </div>
+        <button class="btn btn-primary w-100" id="saveSettingsBtn">Save Configuration</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Agent Modal -->
+  <div class="modal-overlay hidden" id="registerModal">
+    <div class="modal glass-panel">
+      <div class="modal-header">
+        <h2>Register New Brand Chatbot</h2>
+        <button class="close-btn" id="closeRegisterBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="registerForm">
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="regName">Brand Name</label>
+              <input type="text" id="regName" placeholder="e.g. Amazon" class="form-control" required>
+            </div>
+            <div class="form-group col">
+              <label for="regCategory">Category</label>
+              <input type="text" id="regCategory" placeholder="e.g. E-Commerce" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="regLogo">Avatar Logo (Emoji)</label>
+              <input type="text" id="regLogo" placeholder="e.g. 📦" class="form-control" required>
+            </div>
+            <div class="form-group col">
+              <label for="regColor">Brand Primary Color</label>
+              <input type="color" id="regColor" value="#ff9900" class="form-control color-picker">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regGreeting">Initial Greeting Message</label>
+            <textarea id="regGreeting" placeholder="Welcome to Amazon Care! How can I help..." class="form-control" rows="2" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="regPrompt">AI System Instructions</label>
+            <textarea id="regPrompt" placeholder="You are the Amazon Support chatbot. Your tone is helpful and direct. Provide details about packages..." class="form-control" rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="regKeywords">Trigger Keywords (comma separated)</label>
+            <input type="text" id="regKeywords" placeholder="amazon, prime, order, packages" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Connect to Global Network</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Handshake Interstitial Overlay -->
+  <div class="handshake-overlay hidden" id="handshakeOverlay">
+    <div class="handshake-loader">
+      <div class="handshake-waves">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+      <div class="handshake-status" id="handshakeStatus">Routing to Brand Support...</div>
+    </div>
+  </div>
+
+  <!-- Client Script -->
+  <script src="app.js"></script>
+</body>
+</html>

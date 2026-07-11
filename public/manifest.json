@@ -1,0 +1,18 @@
+{
+  "name": "Global AI Chatbot Hub",
+  "short_name": "CareHub",
+  "description": "Multi-agent customer care chatbot hub connecting brands around the world.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#10061e",
+  "theme_color": "#10061e",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2040/2040946.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
