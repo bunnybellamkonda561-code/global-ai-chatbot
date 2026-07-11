@@ -1,0 +1,288 @@
+{
+  "hub": {
+    "name": "Global Care Router",
+    "tagline": "Connecting you to global support agents instantly",
+    "theme": {
+      "primary": "#8a2be2",
+      "primaryDark": "#5f0fa3",
+      "bgGradient": "linear-gradient(135deg, #1e0b36 0%, #0c0414 100%)",
+      "accent": "#00f0ff",
+      "textColor": "#ffffff"
+    },
+    "greeting": "Hello! I am your Global AI Care Router. I can connect you to company customer care departments worldwide. Just ask: 'Connect me to Nike' or 'I want to talk to Spotify support'."
+  },
+  "agents": [
+    {
+      "id": "nike",
+      "name": "Nike Support",
+      "tagline": "Just Do It. Customer Service & Order Assistance.",
+      "category": "Retail & Apparel",
+      "ping": "14ms",
+      "status": "Online",
+      "location": "Oregon, USA",
+      "logo": "👟",
+      "theme": {
+        "primary": "#ff6000",
+        "primaryDark": "#cc4c00",
+        "bgGradient": "linear-gradient(135deg, #111111 0%, #000000 100%)",
+        "accent": "#ff6000",
+        "textColor": "#ffffff"
+      },
+      "greeting": "Welcome to Nike Customer Care! 👟 Let's get your training and orders sorted. How can I help you today? Just Do It.",
+      "systemPrompt": "You are the Nike Customer Care Assistant. Your tone is active, enthusiastic, inspiring, and professional. You help users check order status, understand return policies (60-day trial return policy), find shoe sizes, and choose gear. Keep answers concise.",
+      "keywords": ["nike", "shoes", "sneakers", "activewear", "just do it"],
+      "faq": [
+        {
+          "pattern": ".*(return|refund).*",
+          "response": "Nike offers a 60-day return policy! You can return items for any reason within 60 days, even if you've worn them. Returns are free for Nike Members. Would you like help starting a return?"
+        },
+        {
+          "pattern": ".*(order|status|track).*",
+          "response": "I can help track your order! Please provide your 9-digit Nike Order Number (e.g., NK1234567) so I can query our delivery network."
+        },
+        {
+          "pattern": ".*(size|fit).*",
+          "response": "Nike shoes generally run true to size, but some performance models (like Pegasus or Metcon) can be slightly snug. We recommend checking our size chart or ordering a half-size up if you prefer a roomier fit."
+        }
+      ]
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify Care",
+      "tagline": "Listening is everything. Billing, Account, & Playlists.",
+      "category": "Entertainment & Media",
+      "ping": "28ms",
+      "status": "Online",
+      "location": "Stockholm, Sweden",
+      "logo": "🎵",
+      "theme": {
+        "primary": "#1ed760",
+        "primaryDark": "#1aa34a",
+        "bgGradient": "linear-gradient(135deg, #091a0c 0%, #040905 100%)",
+        "accent": "#1ed760",
+        "textColor": "#ffffff"
+      },
+      "greeting": "Hey there! Spotify Care here. 🎵 Let's get you back to the music. How can I help with your account, billing, or playlists today?",
+      "systemPrompt": "You are the Spotify Support Agent. Your tone is cool, friendly, casual, and highly supportive. You help with Premium subscriptions, billing errors, playlist recovery, offline listening issues, and family plans.",
+      "keywords": ["spotify", "music", "playlist", "premium", "song", "subscription"],
+      "faq": [
+        {
+          "pattern": ".*(premium|subscribe|plan|price|cost).*",
+          "response": "Spotify Premium plans start at $11.99/month for Individual. We also have Duo ($16.99), Family ($19.99 for up to 6 members), and Student ($5.99). You can upgrade directly in your account settings under 'Available Plans'!"
+        },
+        {
+          "pattern": ".*(playlist|delete|recover|lost).*",
+          "response": "Accidentally deleted a playlist? No worries! Log into your account page on spotify.com, go to 'Recover Playlists' in the menu on the left, find the playlist, and click 'Restore'!"
+        },
+        {
+          "pattern": ".*(offline|download|connection).*",
+          "response": "To listen offline, ensure your Premium subscription is active, toggle 'Download' on the album/playlist, and make sure you connect to the internet once every 30 days to keep your downloads active."
+        }
+      ]
+    },
+    {
+      "id": "delta",
+      "name": "Delta Air Lines Help",
+      "tagline": "Keep Climbing. Bookings, Baggage, & Flight Status.",
+      "category": "Travel & Aviation",
+      "ping": "35ms",
+      "status": "Online",
+      "location": "Atlanta, USA",
+      "logo": "✈️",
+      "theme": {
+        "primary": "#e01933",
+        "primaryDark": "#9e1124",
+        "bgGradient": "linear-gradient(135deg, #0a192f 0%, #050b14 100%)",
+        "accent": "#00a3e0",
+        "textColor": "#ffffff"
+      },
+      "greeting": "Thank you for contacting Delta Air Lines. ✈️ I can assist you with flight booking, baggage rules, check-in schedules, and SkyMiles membership. How may I guide your journey today?",
+      "systemPrompt": "You are the Delta Air Lines Guest Assistant. Your tone is extremely polite, professional, clear, and reassuring. You help with ticket changes, baggage limits (1 carry-on + 1 personal item free), check-in rules, and flight tracking. Keep explanations precise.",
+      "keywords": ["delta", "flight", "plane", "ticket", "baggage", "skymiles"],
+      "faq": [
+        {
+          "pattern": ".*(bag|baggage|luggage|carry).*",
+          "response": "For Delta flights, you are allowed 1 carry-on bag and 1 personal item free of charge. Checked bag fees depend on your route, but typically start at $35 for the first bag on domestic flights. SkyMiles Medallion members get free checked bags!"
+        },
+        {
+          "pattern": ".*(cancel|change|refund).*",
+          "response": "Most main cabin tickets for flights originating from North America have no change fees! You can modify or cancel your flight on delta.com or the Fly Delta app under 'My Trips' to receive an eCredit valid for 1 year."
+        },
+        {
+          "pattern": ".*(check-in|checkin|boarding).*",
+          "response": "Check-in opens 24 hours prior to departure. You can check in on the Fly Delta app, delta.com, or at airport kiosks. We recommend arriving at the airport 2 hours before domestic flights and 3 hours before international departures."
+        }
+      ]
+    },
+    {
+      "id": "apex",
+      "name": "Apex Electronics Care",
+      "tagline": "Precision tech support, diagnostics, & warranty claims.",
+      "category": "Consumer Technology",
+      "ping": "8ms",
+      "status": "Online",
+      "location": "Tokyo, Japan",
+      "logo": "💻",
+      "theme": {
+        "primary": "#00f0ff",
+        "primaryDark": "#00aab5",
+        "bgGradient": "linear-gradient(135deg, #121824 0%, #090c12 100%)",
+        "accent": "#39ff14",
+        "textColor": "#ffffff"
+      },
+      "greeting": "Apex Electronics automated diagnostic support is online. 💻 Systems green. Please specify your device model and hardware symptom so I can run troubleshooting scripts.",
+      "systemPrompt": "You are the tech support agent for Apex Electronics. Your tone is analytical, precise, helpful, and highly technical. You diagnose issues for laptops, smartwatches, and headphones, explain warranty returns, and link users to driver updates.",
+      "keywords": ["apex", "laptop", "smartwatch", "headphones", "gadget", "electronics", "repair"],
+      "faq": [
+        {
+          "pattern": ".*(warranty|repair|fix|broken).*",
+          "response": "Apex devices carry a 1-year limited manufacturer warranty. If your device suffered hardware failure without physical/liquid damage, repair is free. Please provide your 12-character Serial Number for checking coverage."
+        },
+        {
+          "pattern": ".*(battery|drain|charge).*",
+          "response": "For power issues: 1) Perform a battery calibration by draining to 0% and charging to 100% uninterrupted. 2) Ensure you are using the original Apex USB-C PD charger. 3) Update system firmware to the latest revision."
+        },
+        {
+          "pattern": ".*(update|driver|firmware|software).*",
+          "response": "Drivers and firmware updates are available in our central repository. Please go to apex-electronics.com/downloads, input your model code (e.g., APX-X500), and download the latest Windows/macOS install package."
+        }
+      ]
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon Support",
+      "tagline": "Earth's most customer-centric support hub.",
+      "category": "E-Commerce & Retail",
+      "ping": "18ms",
+      "status": "Online",
+      "location": "Seattle, USA",
+      "logo": "📦",
+      "theme": {
+        "primary": "#ff9900",
+        "primaryDark": "#b36b00",
+        "bgGradient": "linear-gradient(135deg, #1f1200 0%, #080500 100%)",
+        "accent": "#ff9900",
+        "textColor": "#ffffff"
+      },
+      "greeting": "Welcome to Amazon Support! 📦 I can assist with package tracking, Prime memberships, returns, and order billing. How can I help make your day easier?",
+      "systemPrompt": "You are the Amazon Support Agent. Your tone is helpful, direct, and customer-obsessed. You solve issues with Prime packages, subscriptions, and returns. Keep answers brief.",
+      "keywords": ["amazon", "prime", "package", "delivery", "shipping", "order"],
+      "faq": [
+        {
+          "pattern": ".*(return|refund).*",
+          "response": "Most items purchased on Amazon can be returned within 30 days of receipt. You can print a return label or drop items off package-free at participating UPS, Kohl's, or Whole Foods locations!"
+        },
+        {
+          "pattern": ".*(prime|member|subscription).*",
+          "response": "Amazon Prime costs $14.99/month or $139/year. Benefits include free shipping, Prime Video, and Prime Music. Manage your subscription under 'Your Prime Membership' on our site."
+        },
+        {
+          "pattern": ".*(track|package|where|delivery).*",
+          "response": "To check your delivery, please provide your 17-digit Amazon Order ID (e.g. 123-4567890-1234567) so I can locate your parcel in our logistics network."
+        }
+      ]
+    },
+    {
+      "id": "starbucks",
+      "name": "Starbucks Help",
+      "tagline": "To inspire and nurture the human spirit—one cup at a time.",
+      "category": "Food & Beverage",
+      "ping": "22ms",
+      "status": "Online",
+      "location": "Seattle, USA",
+      "logo": "☕",
+      "theme": {
+        "primary": "#00704a",
+        "primaryDark": "#004e33",
+        "bgGradient": "linear-gradient(135deg, #021a10 0%, #010a06 100%)",
+        "accent": "#00704a",
+        "textColor": "#ffffff"
+      },
+      "greeting": "Hello from Starbucks Rewards! ☕ Let's check your Star balance, reload your card, or customize your drink order. What are we brewing today?",
+      "systemPrompt": "You are the Starbucks Rewards Assistant. Your tone is warm, friendly, and welcoming. You answer questions about Star Rewards, card top-ups, and drink customizations.",
+      "keywords": ["starbucks", "coffee", "rewards", "stars", "drink", "frappuccino"],
+      "faq": [
+        {
+          "pattern": ".*(reward|star|point|redeem).*",
+          "response": "Earn Stars to redeem for free items! 25 Stars gets you a customization (milk, shot), 100 Stars gets a brewed coffee or bakery item, and 200 Stars gets a handcrafted espresso beverage!"
+        },
+        {
+          "pattern": ".*(card|reload|pay|gift).*",
+          "response": "You can reload your Starbucks Card in our app via debit/credit cards or PayPal. Loading and paying with a Starbucks Card earns you 2 Stars per dollar spent!"
+        },
+        {
+          "pattern": ".*(menu|drink|coffee|custom).*",
+          "response": "We customize all beverages! Select alternative milks (oat, almond, soy, coconut), adjust syrup pumps, or choose cold foam. Let me know what you want to customize!"
+        }
+      ]
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix Support",
+      "tagline": "See what's next. Accounts, Streaming, & Plans.",
+      "category": "Entertainment & Media",
+      "ping": "12ms",
+      "status": "Online",
+      "location": "Los Gatos, USA",
+      "logo": "🍿",
+      "theme": {
+        "primary": "#e50914",
+        "primaryDark": "#9c060d",
+        "bgGradient": "linear-gradient(135deg, #170203 0%, #070101 100%)",
+        "accent": "#e50914",
+        "textColor": "#ffffff"
+      },
+      "greeting": "Welcome to Netflix Support! 🍿 Let's resolve any profile, billing, or streaming connection issues so you can get back to your show. How can I help?",
+      "systemPrompt": "You are the Netflix Support Agent. Your tone is quick, clear, polite, and tech-savvy. You help with monthly plans, profiles, password sharing rules, and video resolution issues.",
+      "keywords": ["netflix", "stream", "show", "movie", "account", "profile"],
+      "faq": [
+        {
+          "pattern": ".*(plan|price|cost|billing).*",
+          "response": "Netflix plans: Standard with Ads ($6.99/mo), Standard ($15.49/mo), and Premium ($22.99/mo for 4K UHD + spatial audio). You can change plans anytime in your Account settings."
+        },
+        {
+          "pattern": ".*(household|password|share|sharing).*",
+          "response": "A Netflix account is meant to be shared by people who live together in one household. Extra members can be added for $7.99/month, or they can transfer their profile to a new account."
+        },
+        {
+          "pattern": ".*(error|buffer|quality|loading).*",
+          "response": "For connection issues: 1) Verify your speed meets our 5 Mbps recommendation for HD or 15 Mbps for 4K. 2) Restart your streaming device. 3) Log out and sign back in."
+        }
+      ]
+    },
+    {
+      "id": "dhl",
+      "name": "DHL Express Help",
+      "tagline": "Excellence. Simply delivered. Worldwide shipping.",
+      "category": "Logistics & Shipping",
+      "ping": "29ms",
+      "status": "Online",
+      "location": "Bonn, Germany",
+      "logo": "🚚",
+      "theme": {
+        "primary": "#ffcc00",
+        "primaryDark": "#b38f00",
+        "bgGradient": "linear-gradient(135deg, #1d1802 0%, #050400 100%)",
+        "accent": "#d30113",
+        "textColor": "#ffffff"
+      },
+      "greeting": "Welcome to DHL Express Support! 🚚 I can track international shipments, estimate custom duties, and calculate delivery times. How can I help you today?",
+      "systemPrompt": "You are the DHL Express Support Agent. Your tone is precise, formal, efficient, and informative. You track shipments (typically 10-digit tracking numbers), explain customs duties, and estimate shipping times.",
+      "keywords": ["dhl", "shipment", "package", "tracking", "cargo", "delivery", "customs"],
+      "faq": [
+        {
+          "pattern": ".*(track|where|package|status).*",
+          "response": "Please provide your 10-digit DHL tracking number (e.g. 1234567890). Once entered, I will check our shipping logs to retrieve your package's delivery progress."
+        },
+        {
+          "pattern": ".*(custom|duty|tax|import).*",
+          "response": "Customs duties and taxes are assessed by destination country authorities and depend on item value. DHL acts as broker; you can pay online via our DHL On Demand Delivery portal."
+        },
+        {
+          "pattern": ".*(price|rate|quote|cost).*",
+          "response": "Rates depend on parcel weight, dimensions, origin, and destination. To get a quote, please visit the DHL Express home page and input your package specifications."
+        }
+      ]
+    }
+  ]
+}

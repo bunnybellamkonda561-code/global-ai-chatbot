@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.git
+.agents
+.gemini
+CVS
+.svn
+.hg
+.DS_Store
+*.log
